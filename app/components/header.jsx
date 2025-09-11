@@ -47,7 +47,7 @@ export const Header = () => {
                 <section>
                     <div>
                         {isOpen ? ("") : (
-                            <div className="min-h-screen absolute w-40 text-white top-28 left-0 h-screen bg-orange-800 shadow-lg p-4 text-center rounded-r-2xl z-10">
+                            <div className="min-h-screen absolute top-0 w-40 text-white left-0 h-screen bg-orange-800 shadow-lg p-4 text-center rounded-r-2xl z-10">
                                 <div className="relative ">
                                     <ul>
                                     <li className="nav-btn mb-4"><Link href={"/"} onClick={toggleMenu}>Home</Link></li>
