@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@layer utilities{
+  .li-hover{
+    @apply relative cursor-pointer after:content-['']
+          after:absolute after:h-[2px] after:w-0
+          after:left-0 after:bottom-0 after:transition-all
+          after:duration-500 after:bg-orange-500 hover:after:w-full
+  }
+  .logo-image{
+    @apply h-[120px] sm:h-[70px] md:h-[150px] lg:h-[200px] w-auto
+  }
+  .text{
+    @apply text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl text-gray-700
+  }
+  .text-one{
+    @apply text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl text-white
+  }
+  .h1-text{
+    @apply text-2xl sm:text-4xl md:text-3xl xl:text-5xl font-bold
+  }
+  .nav-btn{
+    @apply text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition
+  }
+  
+  .btn{
+    @apply bg-orange-900 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition duration-500 cursor-pointer 
+  }
+  
+  @media (min-width: 5120px) {
+  .container {
+    max-width: 2560px; /* keeps content from stretching too far */
+  }
+}
+
+
+}
+
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+    duration: 50s;
+  }
+}
+
+.animate-scroll-left {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+
