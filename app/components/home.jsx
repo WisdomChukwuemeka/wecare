@@ -10,7 +10,7 @@ const techStack = [
   {id: 3, name: "VS Code", icon: "/stack/vscode.png" },     
   {id: 4, name: "Django", icon: "/stack/Django.png" },            
   {id: 5, name: "Python", icon: "/stack/Python.png" },        
-  {id: 6, name: "Next.js", icon: "/stack/nextjs.png" },        
+  {id: 6, name: "Next.js", icon: "/stack/Nextjs.png" },        
 ];
 
 const projects = [
