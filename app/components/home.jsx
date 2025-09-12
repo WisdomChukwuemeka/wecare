@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import next from "next"
 import { useState, useEffect } from "react"
 
 const techStack = [
@@ -19,6 +18,46 @@ const projects = [
   {id: 3, name: "Project three", image: "/stack/work.png"},
   {id: 4, name: "Project four", image: "/stack/work.png"},
 ]
+
+const values = [
+  {
+    id: 1,
+    name: "Team Player",
+    icon: "bi bi-people",
+    text: "Thrives in collaborative environments, valuing communication and shared success."
+  },
+  {
+    id: 2,
+    name: "Continuous Learning",
+    icon: "bi bi-journal-code",
+    text: "Committed to staying current with emerging technologies and best practices."
+  },
+  {
+    id: 3,
+    name: "Problem Solver",
+    icon: "bi bi-lightbulb",
+    text: "Enjoys analyzing complex challenges and crafting efficient, scalable solutions."
+  },
+  {
+    id: 4,
+    name: "User-Centered",
+    icon: "bi bi-person-check",
+    text: "Focuses on delivering intuitive, accessible, and engaging user experiences."
+  },
+  {
+    id: 5,
+    name: "Quality Driven",
+    icon: "bi bi-check-circle",
+    text: "Dedicated to writing clean, maintainable, and performance-oriented code."
+  },
+  {
+    id: 6,
+    name: "Adaptable",
+    icon: "bi bi-arrow-repeat",
+    text: "Quick to embrace new tools, workflows, and evolving project requirements."
+  }
+]
+
 
 
 export const Homepage = () => {
@@ -101,7 +140,7 @@ export const Homepage = () => {
   {/* tech stack */}
   <section>
   <div className="p-9  md:p-20 overflow-hidden">
-    <h2 className="text-2xl font-bold text-center mb-6">My Tech Stack</h2>
+    <h2 className="text-2xl font-bold text-center mb-6">My Tech Stack & Tool</h2>
 
     <div className="overflow-hidden relative w-full xl:max-w-4xl mx-auto">
       <div className="animate-scroll-left">
@@ -171,8 +210,39 @@ export const Homepage = () => {
               {/* scroll top button ends */}
 
               {/* show works section starts */}
-              <section>
-                <div className="mt-8 flex flex-col gap-4 p-2 bg-gray-100">
+              <section className="p-10 bg-gray-50">
+  <h2 className="text-2xl font-bold text-center mb-10">My Core Values</h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    {values.map((value) => (
+      <div
+        key={value.id}
+        className="flex flex-col items-center justify-center text-center p-6 rounded-full shadow-md w-56 h-56 mx-auto bg-white hover:shadow-lg 
+        hover:bg-orange-950 hover:text-white transition duration-500
+        "
+      >
+        <i className={`${value.icon}  text-4xl text-orange-600 mb-3`}></i>
+        <h3 className="font-semibold text-lg">{value.name}</h3>
+        <p className="text-sm text-gray-600">{value.text}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+              {/* work section ends here */}
+
+           </div>
+        </>
+    )
+}
+
+
+
+
+
+
+{/* <div className="mt-8 flex flex-col gap-4 p-2 bg-gray-100">
                 <h2 className="text-2xl font-bold text-center">Projects</h2>
                   <div className=" flex flex-col md:flex-row max-w-4xl mx-auto items-center text-center gap-3">
                     
@@ -194,11 +264,4 @@ export const Homepage = () => {
                       ))
                     }
                   </div>
-                  </div>
-              </section>
-              {/* work section ends here */}
-
-           </div>
-        </>
-    )
-}
+                  </div> */}
