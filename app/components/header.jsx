@@ -110,6 +110,8 @@ export const Header = () => {
                               href={
                                 item === "Home"
                                   ? "/"
+                                  : item === "Services"
+                                  ? "/price"
                                   : `/${item.toLowerCase()}`
                               }
                               onClick={toggleMenu}
