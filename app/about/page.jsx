@@ -15,7 +15,7 @@ export default function About() {
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
             About Me
           </h1>
-          <h2 className="text-xl font-semibold text-indigo-600">
+          <h2 className="text-xl font-semibold text-orange-600">
             Wisdom Chukwuemeka Chinagorom
           </h2>
         </header>
