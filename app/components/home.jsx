@@ -2,6 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 
 const techStack = [
   {id: 1, name: "GitHub", icon: "/stack/GitHub.png" },
@@ -28,7 +29,6 @@ const projects = [
     ],
     Technologies: ["Next.js", "Tailwind", "MySQL", "Django"],
   },
-
   {
     id: 2,
     icon: "bi bi-cart-check",
@@ -44,7 +44,6 @@ const projects = [
     ],
     Technologies: ["Next.js", "Tailwind", "MySQL", "Django"],
   },
-
   {
     id: 3,
     icon: "bi bi-book",
@@ -60,7 +59,6 @@ const projects = [
     ],
     Technologies: ["Next.js", "Tailwind", "MySQL", "Django"],
   },
-
   {
     id: 4,
     icon: "bi bi-film",
@@ -76,7 +74,6 @@ const projects = [
     ],
     Technologies: ["Next.js", "Tailwind", "Django", "PostgreSQL"],
   },
-
   {
     id: 5,
     icon: "bi bi-geo-alt",
@@ -94,47 +91,14 @@ const projects = [
   },
 ];
 
-
 const values = [
-  {
-    id: 1,
-    name: "Team Player",
-    icon: "bi bi-people",
-    text: "Thrives in collaborative environments, valuing communication and shared success."
-  },
-  {
-    id: 2,
-    name: "Continuous Learning",
-    icon: "bi bi-journal-code",
-    text: "Committed to staying current with emerging technologies and best practices."
-  },
-  {
-    id: 3,
-    name: "Problem Solver",
-    icon: "bi bi-lightbulb",
-    text: "Enjoys analyzing complex challenges and crafting efficient, scalable solutions."
-  },
-  {
-    id: 4,
-    name: "User-Centered",
-    icon: "bi bi-person-check",
-    text: "Focuses on delivering intuitive, accessible, and engaging user experiences."
-  },
-  {
-    id: 5,
-    name: "Quality Driven",
-    icon: "bi bi-check-circle",
-    text: "Dedicated to writing clean, maintainable, and performance-oriented code."
-  },
-  {
-    id: 6,
-    name: "Adaptable",
-    icon: "bi bi-arrow-repeat",
-    text: "Quick to embrace new tools, workflows, and evolving project requirements."
-  }
+  { id: 1, name: "Team Player", icon: "bi bi-people", text: "Thrives in collaborative environments, valuing communication and shared success." },
+  { id: 2, name: "Continuous Learning", icon: "bi bi-journal-code", text: "Committed to staying current with emerging technologies and best practices." },
+  { id: 3, name: "Problem Solver", icon: "bi bi-lightbulb", text: "Enjoys analyzing complex challenges and crafting efficient, scalable solutions." },
+  { id: 4, name: "User-Centered", icon: "bi bi-person-check", text: "Focuses on delivering intuitive, accessible, and engaging user experiences." },
+  { id: 5, name: "Quality Driven", icon: "bi bi-check-circle", text: "Dedicated to writing clean, maintainable, and performance-oriented code." },
+  { id: 6, name: "Adaptable", icon: "bi bi-arrow-repeat", text: "Quick to embrace new tools, workflows, and evolving project requirements." },
 ]
-
-
 
 export const Homepage = () => {
   const [showScroll, setShowScroll] = useState(false)
@@ -142,268 +106,153 @@ export const Homepage = () => {
   useEffect(() => {
     const handleScroll = () => {
       const halfway = document.documentElement.scrollHeight / 2
-      if(window.scrollY > halfway){
-        setShowScroll(true)
-      } else{
-        setShowScroll(false)
-      }
+      setShowScroll(window.scrollY > halfway)
     }
     window.addEventListener("scroll", handleScroll)
-
-    //Cleanup on unmount
     return () => window.removeEventListener("scroll", handleScroll)
- },[])
+  }, [])
 
- const scrollToHero = () => {
-  document.getElementById("hero")?.scrollIntoView({behavior: "smooth"})
- }
+  const scrollToHero = () => {
+    document.getElementById("hero")?.scrollIntoView({behavior: "smooth"})
+  }
 
-    return(
-        <>
-           <div className="relative">
-            {/* hero section */}
-             <section id="hero">
-                <div className=" flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 p-4">
-                    <div className="relative md:w-1/2 p-4">
-                        <h1 className="text-4xl font-bold mb-4 text-center md:text-left">Hello,
-                        I'm <span className="text-orange-500">Wisdom Chukwuemeka</span>
-                        </h1>
-                        <p className="text mb-4 text-center md:text-left font-medium">
-                            I’m a passionate Full Stack Web Developer dedicated to turning ideas into powerful, scalable, and user-friendly digital solutions. From sleek frontends to robust backends, I help businesses grow by making them visible online.                            </p>
-                        
-                        <div className="text-center md:text-left">
-                            <Link href={"/about"} className="bg-orange-900 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition duration-500">Learn More</Link>
-                        </div>
-                        <div className="absolute top-0 right-0 w-24 h-24 bg-orange-400 rounded-full filter blur-3xl opacity-50 z-0">
-
-                        </div>
-
-                        <div className="py-15 hidden md:flex items-center gap-8">
-                        <h3 className="text-sm md:text-lg ">Check Out My</h3>
-                        <ul>
-                          <Link href={"https://www.linkedin.com/in/wisdomchukwuemeka/"}>
-                          <Image 
-                          src="/stack/LinkedIn.png"
-                          alt="LinkedIn"
-                          width={30}
-                          height={30}
-                      
-                          />
-                          </Link>
-                          
-                        </ul>
-                    </div>
-                    </div>
-
-                    
-                    <div>
-                        <Image 
-                            src="/portfolio.png"
-                            alt="hero image"
-                            width={500}
-                            height={38}
-                            className="w-60 md:w-80 xl:w-100 mx-auto rounded-full"
-                        />
-                    </div>
-                </div>
-             </section>
-             {/* hero section end */}
-
-             {/* section two starts */}
-             <section>
-  {/* tech stack */}
-  <section>
-  {/* tech stack */}
-  <section>
-  <div className="p-9  md:p-20 overflow-hidden">
-    <h2 className="text-2xl font-bold text-center mb-6">My Tech Stack & Tool</h2>
-
-    <div className="overflow-hidden relative w-full xl:max-w-4xl mx-auto">
-      <div className="animate-scroll-left">
-        {/* duplicate once for seamless loop */}
-        {[...techStack, ...techStack, ...techStack,].map((tech) => (
-          <div 
-            key={`${tech.id}-${Math.random()}`} 
-            className="flex flex-col items-center text-center space-y-2 px-6 "
-          >
-            <Image 
-              src={tech.icon} 
-              alt={tech.name} 
-              width={64} 
-              height={64} 
-              className="w-16 h-16 object-contain"
-            />
-            <span className="text-gray-700 font-medium">{tech.name}</span>
+  return (
+    <>
+      <div className="relative">
+        {/* hero section */}
+        <motion.section 
+          id="hero"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 p-4">
+            <div className="relative md:w-1/2 p-4">
+              <h1 className="text-4xl font-bold mb-4 text-center md:text-left">
+                Hello, I'm <span className="text-orange-500">Wisdom Chukwuemeka</span>
+              </h1>
+              <p className="text mb-4 text-center md:text-left font-medium">
+                I’m a passionate Full Stack Web Developer dedicated to turning ideas into powerful, scalable, and user-friendly digital solutions. 
+              </p>
+              <div className="text-center md:text-left">
+                <Link href={"/about"} className="bg-orange-900 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition duration-500">Learn More</Link>
+              </div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Image 
+                src="/portfolio.png"
+                alt="hero image"
+                width={500}
+                height={38}
+                className="w-60 md:w-80 xl:w-100 mx-auto rounded-full"
+              />
+            </motion.div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+        </motion.section>
+        {/* hero section end */}
 
-</section>
-
-</section>
-
-             {/* section two ends */}
-
-             {/* section three begins */}
-             <section>
-                <div className="flex items-center">
-                  <hr className="border-orange-800 w-full h-2"/>
-                  <Image 
-                      src="/portfolio.png"
-                      alt="hero image"
-                      width={50}
-                      height={50}
-                            className="border-3 border-white rounded-full
-                            xl:w-70"
-                        />
-                  <hr className="border-orange-800 w-full h-2"/>
-                </div>
-
-                <div className="flex flex-col justify-center items-center">
-                  <div className="text-center flex flex-col space-y-2">
-                  <p className="font-bold">Wisdom</p>
-
-                  <Link href={"/contact"}>
-                  <span className="bg-black w-fit h-fit p-2 rounded-2xl text-sm md:text-lg text-white hover:bg-gray-800 duration-500 shadow-lg">Get in touch</span>
-                  </Link>
-                  
-                  </div>
-                </div>
-             </section>
-             {/* section three ends */}
-
-             {/* Scroll-to-top button */}
-              {showScroll && (
-                <button onClick={scrollToHero} className="
-                fixed bottom-6 right-6 bg-orange-600 text-white p-3 rounded-full
-                shadow-lg hover:bg-orange-700 transition">
-                  <i className="bi bi-arrow-up"></i>
-                </button>
-              )}
-              {/* scroll top button ends */}
-
-              {/* Value section starts here */}
-              <section className="p-10 bg-gray-50 mt-5">
-  <h2 className="text-2xl font-bold text-center mb-8">My Core Values</h2>
-
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
-    {values.map((value) => (
-      <div
-        key={value.id}
-        className="flex flex-col items-center justify-center text-center p-6 rounded-full shadow-md w-56 h-56 mx-auto bg-white hover:shadow-lg 
-        hover:bg-orange-950 hover:text-white transition duration-500 transform hover:scale-105 hover:translate-y-1
-        "
-      >
-        <i className={`${value.icon}  text-4xl text-orange-600 mb-3`}></i>
-        <h3 className="font-semibold text-lg">{value.name}</h3>
-        <p className="text-sm text-gray-600">{value.text}</p>
-      </div>
-    ))}
-  </div>
-</section>
-              {/* Value section ends here */}
-
-
-          {/* Project section starts here */}
-            <section className="p-10 bg-white mt-5">
-
-                <div>
-                  <div className="flex flex-col justify-center items-center mb-5">
-                    <h2 className="h1-text font-bold text-center mb-2">Projects</h2>
-                    <p className="text">Showcasing real-world solutions involving technical innovation with human-centered design</p>
-                  </div>
-                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-6xl mx-auto">
-  {projects.map((project) => (
-    <div 
-      key={project.id}
-      className="relative group overflow-hidden transition duration-500 flex flex-col md:flex-row gap-4 bg-black text-white p-6 rounded-2xl shadow-lg"
-    >
-      <span className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-red-300 via-blue-700 to-orange-600 group-hover:w-full transition-all duration-500"></span>
-      {/* Left divider */}
-      <hr className="hidden md:flex rounded-2xl w-2 h-auto border-1 border-orange-300 bg-gradient-to-r from-orange-700 to-blue-200"/>
-
-      {/* Project content */}
-      <div className="flex-1 space-y-4">
-        <i className={`${project.icon} text-4xl text-orange-200`}></i>
-        <h3 className="font-semibold text-lg md:text-xl xl:text-2xl text-orange-500">
-          {project.name}
-        </h3>
-        <p className="text-base md:text-lg text-gray-200">{project.desc}</p>
-
-        {/* Core Features */}
-        <div className="mt-4">
-          <h4 className="text-orange-400 font-semibold mb-2">Core Features</h4>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {project.features
-              .filter((f) => f.name) // ignore the "title" object
-              .map((feature) => (
-                <li 
-                  key={feature.id} 
-                  className="bg-orange-900 px-3 py-2 rounded-xl hover:bg-orange-600 transition duration-300"
+        {/* tech stack */}
+        <section className="p-9 md:p-20 overflow-hidden">
+          <h2 className="text-2xl font-bold text-center mb-6">My Tech Stack & Tool</h2>
+          <div className="overflow-hidden relative w-full xl:max-w-4xl mx-auto">
+            <div className="animate-scroll-left flex">
+              {[...techStack, ...techStack, ...techStack].map((tech) => (
+                <motion.div 
+                  key={`${tech.id}-${Math.random()}`} 
+                  className="flex flex-col items-center text-center space-y-2 px-6"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 200 }}
                 >
-                  {feature.name}
-                </li>
+                  <Image src={tech.icon} alt={tech.name} width={64} height={64} className="w-16 h-16 object-contain"/>
+                  <span className="text-gray-700 font-medium">{tech.name}</span>
+                </motion.div>
               ))}
-          </ul>
-        </div>
+            </div>
+          </div>
+        </section>
 
-        {/* Technologies */}
-        <div className="mt-4">
-          <h4 className="text-orange-400 font-semibold mb-2">Technologies Used</h4>
-          <div className="flex flex-wrap gap-2">
-            {project.Technologies.map((tech, index) => (
-              <span 
-                key={index}
-                className="bg-gray-800 text-sm px-3 py-1 rounded-full hover:bg-gray-700 transition duration-300"
+        {/* values */}
+        <section className="p-10 bg-gray-50 mt-5">
+          <h2 className="text-2xl font-bold text-center mb-8">My Core Values</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {values.map((value) => (
+              <motion.div
+                key={value.id}
+                className="flex flex-col items-center justify-center text-center p-6 rounded-full shadow-md w-56 h-56 mx-auto bg-white"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: value.id * 0.1 }}
+                whileHover={{ scale: 1.05 }}
               >
-                {tech}
-              </span>
+                <i className={`${value.icon} text-4xl text-orange-600 mb-3`}></i>
+                <h3 className="font-semibold text-lg">{value.name}</h3>
+                <p className="text-sm text-gray-600">{value.text}</p>
+              </motion.div>
             ))}
           </div>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+        </section>
 
-                </div>
-
-            </section>
-          {/* Project section ends here */}
-
-           </div>
-        </>
-    )
-}
-
-
-
-
-
-
-{/* <div className="mt-8 flex flex-col gap-4 p-2 bg-gray-100">
-                <h2 className="text-2xl font-bold text-center">Projects</h2>
-                  <div className=" flex flex-col md:flex-row max-w-4xl mx-auto items-center text-center gap-3">
-                    
-                    {
-                      projects.map((item) => (
-                        <div key={item.id} 
-                        
-                        >
-                            <Image 
-                            src={item.image}
-                            alt="Image"
-                            width={90}
-                            height={90}
-                            className="w-50 h-50 object-contain
-                            rounded-2xl"
-                            />
-                            <p>{item.name}</p>
-                        </div>
-                      ))
-                    }
+        {/* projects */}
+        <section className="p-10 bg-white mt-5">
+          <div className="flex flex-col justify-center items-center mb-5">
+            <h2 className="h1-text font-bold text-center mb-2">Projects</h2>
+            <p className="text">Showcasing real-world solutions involving technical innovation with human-centered design</p>
+          </div>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {projects.map((project) => (
+              <motion.div 
+                key={project.id}
+                className="relative group overflow-hidden flex flex-col md:flex-row gap-4 bg-black text-white p-6 rounded-2xl shadow-lg"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: project.id * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <span className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-red-300 via-blue-700 to-orange-600 group-hover:w-full transition-all duration-500"></span>
+                <div className="flex-1 space-y-4">
+                  <i className={`${project.icon} text-4xl text-orange-200`}></i>
+                  <h3 className="font-semibold text-lg md:text-xl xl:text-2xl text-orange-400">{project.name}</h3>
+                  <p className="text-base md:text-lg text-gray-200">{project.desc}</p>
+                  <div className="mt-4">
+                    <h4 className="text-orange-400 font-semibold mb-2">Core Features</h4>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {project.features.filter((f) => f.name).map((feature) => (
+                        <li key={feature.id} className="bg-orange-900 px-3 py-2 rounded-xl hover:bg-orange-600 transition duration-300">{feature.name}</li>
+                      ))}
+                    </ul>
                   </div>
-                  </div> */}
+                  <div className="mt-4">
+                    <h4 className="text-orange-400 font-semibold mb-2">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.Technologies.map((tech, index) => (
+                        <span key={index} className="bg-gray-800 text-sm px-3 py-1 rounded-full hover:bg-gray-700 transition duration-300">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* scroll-to-top */}
+        {showScroll && (
+          <motion.button 
+            onClick={scrollToHero} 
+            className="fixed bottom-6 right-6 bg-orange-600 text-white p-3 rounded-full shadow-lg"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <i className="bi bi-arrow-up"></i>
+          </motion.button>
+        )}
+      </div>
+    </>
+  )
+}
