@@ -175,8 +175,27 @@ export const Homepage = () => {
           </div>
         </section>
 
+        <div className="flex flex-col gap-4">
+          <div className="flex justify-center items-center ">
+          <hr className="w-full h-2 border-orange-700"/>
+          <Image 
+                src="/portfolio.png"
+                alt="hero image"
+                width={50}
+                height={50}
+                className=" mx-auto rounded-full"
+              />
+          <hr className="w-full h-2 border-orange-700"/>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+                <h1 className="text-center text font-bold">Wisdom</h1>
+          <Link className="text-center bg-black w-fit h-fit p-2 rounded-2xl text-white
+          text-base md:text-[1rem] xl:text-3xl" href={"/contact"}>Contact me</Link>
+          </div>
+        </div>
+
         {/* values */}
-        <section className="p-10 bg-gray-50 mt-5">
+        <section className="p-10 bg-gray-50 mt-8">
           <h2 className="text-2xl font-bold text-center mb-8">My Core Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {values.map((value) => (
