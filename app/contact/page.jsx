@@ -28,7 +28,7 @@ export default function Contactpage() {
     return(
         <>
             <div className="p-4 md:p-20 flex flex-col justify-center items-center">
-                <div className="max-w-4xl w-full bg-gradient-to-r from-orange-100 via-yellow-100 to-gray-100 p-8 rounded-lg shadow-lg">
+                <div className="dynamic-paragraph max-w-4xl w-full bg-gradient-to-r from-orange-100 via-yellow-100 to-gray-100 p-8 rounded-lg shadow-lg">
                     <h2 className="font-bold text text-center ">Send a Message</h2>
                     <form onSubmit={handleSubmit} className="flex flex-col space-y-4"   >
                         <div className="flex flex-col space-y-2">

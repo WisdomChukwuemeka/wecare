@@ -3,10 +3,33 @@
 
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  
+   --background-color-light: white;
+  --text-color-light: black;
+  --background-color-dark: black;
+  --text-color-dark: white;
 }
+
+:root, [data-theme='light'] {
+    --background-color: white;
+    --text-color: black;
+    --paragraph-color: #000000;
+}
+
+[data-theme='dark'] {
+    --background-color: black;
+    --text-color: white;
+    --paragraph-color: rgb(0, 0, 0);
+}
+
+.dynamic-paragraph{
+  color: var(--paragraph-color)
+}
+
+.dynamic-background{
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -26,9 +49,11 @@
 }
 
 body {
-  background-color: white;
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    /* Add a smooth transition for theme changes */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 
@@ -43,7 +68,7 @@ body {
     @apply h-[120px] sm:h-[70px] md:h-[150px] lg:h-[200px] w-auto
   }
   .text{
-    @apply text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl text-gray-700
+    @apply text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl
   }
   .text-one{
     @apply text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl text-white

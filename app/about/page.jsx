@@ -12,7 +12,7 @@ export default function About() {
             height={38}
              className="w-60 md:w-80 xl:w-100 mx-auto rounded-full mb-10"
            />
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
+          <h1 className="text-4xl font-extrabold mb-4">
             About Me
           </h1>
           <h2 className="text-xl font-semibold text-orange-600">
@@ -20,7 +20,7 @@ export default function About() {
           </h2>
         </header>
 
-        <div className="text-gray-700 space-y-6 leading-relaxed text-sm md:text-2xl xl:text-3xl">
+        <div className="space-y-6 leading-relaxed text-sm md:text-2xl xl:text-3xl">
           <p>
             I am a passionate and detail-oriented professional with a strong interest 
             in building impactful digital experiences. My work focuses on blending 

@@ -34,10 +34,10 @@ export default function Pricing() {
   return (
     <div className="min-h-screen py-20 px-6">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
-          Our Website Development Packages
+        <h2 className="text-4xl font-bold mb-4">
+          Website Development Packages
         </h2>
-        <p className="text text-gray-600 mb-12">
+        <p className="text mb-12">
            Choose the plan that fits your needs.
            </p>
         <div className="grid gap-8 md:grid-cols-2">
@@ -74,8 +74,7 @@ export default function Pricing() {
         </div>
 
         <p className="text text-gray-500 mt-10">
-          * On professional portfolio websites, single-page sites typically range from $550–$800,
-          small business sites $1,300–$2,500, and complex websites often start at $3,500+.
+          I bring your idea to life, select from any of my packages to begin.
         </p>
       </div>
     </div>

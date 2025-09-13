@@ -1,8 +1,9 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { motion } from "framer-motion"
+import { ThemeContext } from "./context"
 
 const techStack = [
   {id: 1, name: "GitHub", icon: "/stack/GitHub.png" },
@@ -102,6 +103,7 @@ const values = [
 
 export const Homepage = () => {
   const [showScroll, setShowScroll] = useState(false)
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -158,7 +160,10 @@ export const Homepage = () => {
         {/* tech stack */}
         <section className="p-9 md:p-20 overflow-hidden">
           <h2 className="text-2xl font-bold text-center mb-6">My Tech Stack & Tool</h2>
-          <div className="overflow-hidden relative w-full xl:max-w-4xl mx-auto">
+          <div className={`bg-white h-fit p-2 rounded-2xl overflow-hidden relative 
+          w-full xl:max-w-4xl mx-auto backdrop-blur-md bg-opacity-30 
+          ${theme === "dark" ? "bg-white/30" : "bg-black/30"}
+          `}>
             <div className="animate-scroll-left flex">
               {[...techStack, ...techStack, ...techStack].map((tech) => (
                 <motion.div 
@@ -168,7 +173,9 @@ export const Homepage = () => {
                   transition={{ type: "spring", stiffness: 200 }}
                 >
                   <Image src={tech.icon} alt={tech.name} width={64} height={64} className="w-16 h-16 object-contain"/>
-                  <span className="text-gray-700 font-medium">{tech.name}</span>
+                  <span className={`font-medium 
+                    ${theme === "dark" ? "text-white" : "text-gray-800"}
+                    `}>{tech.name}</span>
                 </motion.div>
               ))}
             </div>
@@ -189,13 +196,17 @@ export const Homepage = () => {
           </div>
           <div className="flex flex-col justify-center items-center">
                 <h1 className="text-center text font-bold">Wisdom</h1>
-          <Link className="text-center bg-black w-fit h-fit p-2 rounded-2xl text-white
-          text-base md:text-[1rem] xl:text-3xl" href={"/contact"}>Contact me</Link>
+          <Link className={`text-center w-fit h-fit p-2 rounded-2xl
+          text-base md:text-[1rem] xl:text-3xl 
+          hover:bg-black-2/3v 
+          ${theme === "dark" ? "bg-orange-800 text-white hover:bg-orange-600 transition duration-500" : "bg-black text-white hover:bg-black/85 transition duration-500"}
+
+          `} href={"/contact"}>Contact me</Link>
           </div>
         </div>
 
         {/* values */}
-        <section className="p-10 bg-gray-50 mt-8">
+        <section className="p-10 mt-8">
           <h2 className="text-2xl font-bold text-center mb-8">My Core Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {values.map((value) => (
@@ -209,7 +220,9 @@ export const Homepage = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <i className={`${value.icon} text-4xl text-orange-600 mb-3`}></i>
-                <h3 className="font-semibold text-lg">{value.name}</h3>
+                <h3 className={`font-semibold text-lg
+                ${theme === "dark" ? "text-black" : "text-black"}
+                  `}>{value.name}</h3>
                 <p className="text-sm text-gray-600">{value.text}</p>
               </motion.div>
             ))}
@@ -217,7 +230,7 @@ export const Homepage = () => {
         </section>
 
         {/* projects */}
-        <section className="p-10 bg-white mt-5">
+        <section className="p-10 mt-5">
           <div className="flex flex-col justify-center items-center mb-5">
             <h2 className="h1-text font-bold text-center mb-2">Projects</h2>
             <p className="text">Showcasing real-world solutions involving technical innovation with human-centered design</p>
@@ -226,7 +239,10 @@ export const Homepage = () => {
             {projects.map((project) => (
               <motion.div 
                 key={project.id}
-                className="relative group overflow-hidden flex flex-col md:flex-row gap-4 bg-black text-white p-6 rounded-2xl shadow-lg"
+                className={`relative group overflow-hidden flex flex-col md:flex-row 
+                  gap-4 bg-black text-white p-6 rounded-2xl shadow-lg
+                  ${theme === "dark" ? "bg-white" : "bg-black"}
+                  `}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -237,7 +253,9 @@ export const Homepage = () => {
                 <div className="flex-1 space-y-4">
                   <i className={`${project.icon} text-4xl text-orange-200`}></i>
                   <h3 className="font-semibold text-lg md:text-xl xl:text-2xl text-orange-400">{project.name}</h3>
-                  <p className="text-base md:text-lg text-gray-200">{project.desc}</p>
+                  <p className={`text-base md:text-lg
+                    ${theme === "dark" ? "text-gray-800" : "text-white"}
+                    `}>{project.desc}</p>
                   <div className="mt-4">
                     <h4 className="text-orange-400 font-semibold mb-2">Core Features</h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">

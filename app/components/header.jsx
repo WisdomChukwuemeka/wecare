@@ -2,8 +2,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Roboto } from "next/font/google"
-import { useState } from "react"
+import { useState, useEffect, useContext } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { ThemeContext } from "./context"
 
 const roboto = Roboto({
   weight: ["700", "900"],
@@ -13,10 +14,12 @@ const roboto = Roboto({
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(true)
+   const { theme, themeButton } = useContext(ThemeContext);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+
 
   return (
     <>
@@ -45,6 +48,9 @@ export const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
+              <button onClick={themeButton} className="text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl">
+              {theme === 'light' ? <i class="bi bi-moon-fill"></i> : <i class="bi bi-brightness-alt-low-fill"></i>}
+          </button>
               <motion.li whileHover={{ scale: 1.1 }} className="li-hover">
                 <Link href={"/"}>Home</Link>
               </motion.li>
