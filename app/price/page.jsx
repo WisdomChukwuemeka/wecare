@@ -1,12 +1,14 @@
 export default function Pricing() {
   const tiers = [
     {
+      id: 1,
       name: "Simple Website",
       price: "$550",
       desc: "Single-page site, perfect for landing pages or portfolios.",
       features: ["Responsive design", "Fast delivery", "Basic SEO"],
     },
     {
+      id: 2,
       name: "Standard Website",
       price: "$1,300",
       desc: "3–4 page website suitable for small businesses.",
@@ -19,6 +21,7 @@ export default function Pricing() {
       highlighted: true,
     },
     {
+      id: 3,
       name: "Complex Website",
       price: "From $3,500",
       desc: "Websites with 5+ pages, advanced functionality, or custom features.",
@@ -43,7 +46,7 @@ export default function Pricing() {
         <div className="grid gap-8 md:grid-cols-2">
           {tiers.map((tier) => (
             <div
-              key={tier.name}
+              key={tier.id}
               className={`relative rounded-2xl shadow-lg p-8 text-left transition-transform hover:scale-105 bg-white ${
                 tier.highlighted ? "border-2 border-orange-500" : ""
               }`}
@@ -74,7 +77,7 @@ export default function Pricing() {
         </div>
 
         <p className="text text-gray-500 mt-10">
-          I bring your idea to life, select from any of my packages to begin.
+          Bring your idea to life, select any package of your choice to begin.
         </p>
       </div>
     </div>
