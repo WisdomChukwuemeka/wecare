@@ -16,7 +16,7 @@
 }
 
 [data-theme='dark'] {
-    --background-color: black;
+    --background-color: rgb(39, 34, 34);
     --text-color: white;
     --paragraph-color: rgb(0, 0, 0);
 }
