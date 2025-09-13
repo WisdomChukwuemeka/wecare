@@ -213,8 +213,9 @@ export const Homepage = () => {
               <motion.div
                 key={value.id}
                 className={`flex flex-col items-center justify-center text-center p-6 rounded-full 
-                shadow-md w-56 h-56 mx-auto backdrop-blur-md bg-opacity-10 
-                ${theme === "dark" ? "bg-white/30" : "bg-black/5"}
+                shadow-md w-56 h-56 mx-auto backdrop-blur-md bg-opacity-30 
+            ${theme === "dark" ? "bg-white" : "bg-white border-2 border-orange-100 "}
+                
                 `}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -226,9 +227,7 @@ export const Homepage = () => {
                 <h3 className={`font-semibold text-lg
                 ${theme === "dark" ? "text-black" : "text-black"}
                   `}>{value.name}</h3>
-                <p className={`text-sm
-                ${theme === "dark" ? "text-gray-100" : "text-gray-800"}
-                `}>{value.text}</p>
+                <p className="text-sm text-gray-600">{value.text}</p>
               </motion.div>
             ))}
           </div>
@@ -246,7 +245,7 @@ export const Homepage = () => {
                 key={project.id}
                 className={`relative group overflow-hidden flex flex-col md:flex-row 
                   gap-4 bg-black text-white p-6 rounded-2xl shadow-lg
-                  ${theme === "dark" ? "bg-gradient-to-r from-white/30 to-white/30" : "bg-black"}
+                  ${theme === "dark" ? "bg-white" : "bg-black"}
                   `}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -259,7 +258,7 @@ export const Homepage = () => {
                   <i className={`${project.icon} text-4xl text-orange-200`}></i>
                   <h3 className="font-semibold text-lg md:text-xl xl:text-2xl text-orange-400">{project.name}</h3>
                   <p className={`text-base md:text-lg
-                    ${theme === "dark" ? "text-white" : "text-white"}
+                    ${theme === "dark" ? "text-gray-800" : "text-white"}
                     `}>{project.desc}</p>
                   <div className="mt-4">
                     <h4 className="text-orange-400 font-semibold mb-2">Core Features</h4>
