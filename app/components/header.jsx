@@ -102,9 +102,7 @@ export const Header = () => {
                         },
                       }}
                     >
-                      <button onClick={themeButton} className="text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl">
-              {theme === 'light' ? <i class="bi bi-moon-fill"></i> : <i class="bi bi-brightness-alt-low-fill"></i>}
-          </button>
+                      
                       {["Home", "Services", "About", "Contact"].map(
                         (item, idx) => (
                           <motion.li
@@ -130,6 +128,9 @@ export const Header = () => {
                           </motion.li>
                         )
                       )}
+                      <button onClick={themeButton} className="text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl">
+              {theme === 'light' ? <i className="bi bi-moon-fill"></i> : <i className="bi bi-brightness-alt-low-fill"></i>}
+              </button>
                     </motion.ul>
 
                     {/* Close button */}
