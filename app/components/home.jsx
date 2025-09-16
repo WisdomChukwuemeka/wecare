@@ -17,7 +17,7 @@ export const Homepage = () => {
                             <div className="absolute ">
                             <div className="text-white text-center">
                                 <h1 className="h1-text text-green-300">Health is Wealth</h1>
-                                <p className="text-[0.8rem] md:text-[1.5rem] xl:text-[2rem] max-w-4xl md:max-w-2xl xl:max-4-7xl mx-auto px-8">We have professional doctors from all over the world ready to save a life</p>
+                                <p className="text-[0.8rem] md:text-[1.8rem] xl:text-[2rem] max-w-4xl md:max-w-3xl xl:max-4-7xl mx-auto px-8">We have professional doctors from all over the world ready to save a life</p>
                                 <button className="btn mt-2 text">
                                     Get Started
                                 </button>

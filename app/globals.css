@@ -68,13 +68,13 @@ body {
     @apply h-[120px] sm:h-[70px] md:h-[150px] lg:h-[200px] w-auto
   }
   .text{
-    @apply text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl
+    @apply text-base sm:text-[0.8rem] md:text-[1.3rem] xl:text-2xl
   }
   .text-one{
     @apply text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl text-white
   }
   .h1-text{
-    @apply text-2xl sm:text-4xl md:text-3xl xl:text-5xl font-bold
+    @apply text-2xl sm:text-4xl md:text-5xl xl:text-5xl font-bold
   }
   .nav-btn{
     @apply text-white px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-500

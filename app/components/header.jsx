@@ -59,7 +59,7 @@ export const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <button onClick={themeButton} className="text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl">
+              <button onClick={themeButton} className="text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl ml-2">
               {theme === 'light' ? <i className="bi bi-moon-fill"></i> : <i className="bi bi-brightness-alt-low-fill"></i>}
           </button>
               <motion.li whileHover={{ scale: 1.1 }} className="li-hover">
