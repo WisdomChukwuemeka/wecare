@@ -25,7 +25,7 @@ export const Header = () => {
     <>
       <div className="relative">
         <header>
-          <nav className="flex justify-between items-center p-4 gap-4">
+          <nav className="flex justify-between items-center px-4 xl:px-6 shadow-lg">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -33,13 +33,21 @@ export const Header = () => {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="/stack/wisdom.png"
+                src="/logo.png"
                 alt="Logo"
                 width={50}
                 height={50}
-                className="w-20 h-20 md:w-30 md:h-30 xl:w-50 xl:h-50"
+                className="w-20 h-20 md:w-30 md:h-30"
               />
             </motion.div>
+
+            <div className="hidden md:flex max-w-6/12 xl:max-w-6/12 bg-gray-200 p-2 rounded-2xl">
+              <input type="search" name="" id="" 
+              className=" bg-gray-200 border-0
+              focus:border-green-200 text"
+              placeholder="Search doctor"/>
+              <i className="bi bi-search xl:items-end"></i>
+            </div>
 
             {/* Navbar links */}
             <motion.ul
@@ -49,7 +57,7 @@ export const Header = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
             >
               <button onClick={themeButton} className="text-base sm:text-2xl md:text-[1.2rem] xl:text-2xl">
-              {theme === 'light' ? <i class="bi bi-moon-fill"></i> : <i class="bi bi-brightness-alt-low-fill"></i>}
+              {theme === 'light' ? <i className="bi bi-moon-fill"></i> : <i className="bi bi-brightness-alt-low-fill"></i>}
           </button>
               <motion.li whileHover={{ scale: 1.1 }} className="li-hover">
                 <Link href={"/"}>Home</Link>
@@ -68,13 +76,12 @@ export const Header = () => {
             {/* Mobile menu button */}
             <div className="cursor-pointer md:hidden" onClick={toggleMenu}>
               {isOpen ? (
-                <i className="bi bi-list text-black"></i>
+                <i className="bi bi-list text-green-900 btn"></i>
               ) : (
-                ""
+                <i className="bi bi-x-lg btn"></i>
               )}
             </div>
           </nav>
-          <hr className="w-full h-2 border-gray-200 shadow-lg" />
         </header>
 
         {/* Mobile menu */}
@@ -84,10 +91,10 @@ export const Header = () => {
               {!isOpen && (
                 <motion.div
                   key="mobile-menu"
-                  className="min-h-screen absolute top-0 w-40 text-white left-0 h-screen bg-orange-800 shadow-lg p-4 text-center rounded-r-2xl z-10"
-                  initial={{ x: -200 }}
-                  animate={{ x: 0 }}
-                  exit={{ x: -200 }}
+                  className="h-fit absolute w-full text-white bg-green-800 shadow-lg p-4 text-center z-10"
+                  initial={{ y: [0] }}
+                  animate={{ y: [-80, 0] }}
+                  exit={{ y: -500 }}
                   transition={{ type: "spring", stiffness: 100 }}
                 >
                   <div className="relative">
@@ -102,6 +109,16 @@ export const Header = () => {
                         },
                       }}
                     >
+                      <div className="flex justify-center items-center mb-5">
+                <div className="bg-gray-300 w-fit h-fit p-1.5 rounded-2xl">
+              <input type="search" name="" id="" 
+              className=" border-0
+              focus:border-green-200 text text-black"
+              placeholder="Search doctor"/>
+              <i class="bi bi-search text-black"></i>
+            </div>
+            </div>
+            
                       
                       {["Home", "Services", "About", "Contact"].map(
                         (item, idx) => (
@@ -132,20 +149,6 @@ export const Header = () => {
               {theme === 'light' ? <i className="bi bi-moon-fill"></i> : <i className="bi bi-brightness-alt-low-fill"></i>}
               </button>
                     </motion.ul>
-
-                    {/* Close button */}
-                    <div className="absolute top-2 right-0">
-                      <div
-                        className="cursor-pointer md:hidden"
-                        onClick={toggleMenu}
-                      >
-                        {isOpen ? (
-                          ""
-                        ) : (
-                          <i className="bi bi-x-lg text-white bg-black w-fit h-fit rounded-full p-1"></i>
-                        )}
-                      </div>
-                    </div>
                   </div>
                 </motion.div>
               )}
