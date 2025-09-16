@@ -41,13 +41,16 @@ export const Header = () => {
               />
             </motion.div>
 
-            <div className="hidden md:flex max-w-6/12 xl:max-w-6/12 bg-gray-200 p-2 rounded-2xl">
-              <input type="search" name="" id="" 
-              className=" bg-gray-200 border-0
-              focus:border-green-200 text"
-              placeholder="Search doctor"/>
-              <i className="bi bi-search xl:items-end"></i>
-            </div>
+            <div className="hidden md:flex items-center w-1/2 xl:w-1/3 bg-gray-100 p-2 rounded-2xl shadow-sm">
+  <input
+    type="search"
+    id="doctor-search"
+    placeholder="Search doctor"
+    className="flex-grow bg-transparent outline-none px-2 text-gray-700 placeholder-gray-400"
+  />
+  <i className="bi bi-search text-gray-500 text-lg"></i>
+</div>
+
 
             {/* Navbar links */}
             <motion.ul
@@ -110,14 +113,17 @@ export const Header = () => {
                       }}
                     >
                       <div className="flex justify-center items-center mb-5">
-                <div className="bg-gray-300 w-fit h-fit p-1.5 rounded-2xl">
-              <input type="search" name="" id="" 
-              className=" border-0
-              focus:border-green-200 text text-black"
-              placeholder="Search doctor"/>
-              <i class="bi bi-search text-black"></i>
-            </div>
-            </div>
+  <div className="flex items-center bg-gray-100 p-2 rounded-2xl shadow-sm w-fit">
+    <input
+      type="search"
+      id="doctor-search"
+      placeholder="Search doctor"
+      className="bg-transparent outline-none px-2 text-gray-800 placeholder-gray-500"
+    />
+    <i className="bi bi-search text-gray-500 text-lg"></i>
+  </div>
+</div>
+
             
                       
                       {["Home", "Services", "About", "Contact"].map(
